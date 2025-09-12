@@ -3,6 +3,7 @@ package com.hacker4society.blog.blog_app_apis.entities;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,26 +17,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="users")
+@Table(name="categories")
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer categoryId;
 
-    @Column(name = "username" , nullable = false, length = 100)
-    private String name;
-    @Column(name = "password" , nullable = false, length = 100)
-    private String password;
-    @Column(name = "email_Id" , nullable = false)
-    private String email;
-    @Column(name = "about" , nullable = false)
-    private String about;
+    @Column(name="title" , length = 100 , nullable = false)
+    private String categoryTitle;
+    private String categoryDescription;
 
-    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category" , cascade = CascadeType.ALL)
     private List<Post> posts = new ArrayList<>();
 
 }
