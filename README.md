@@ -102,3 +102,6 @@ http://localhost:8080/api/
 - **Commit your changes**
 - **Push to your branch**
 - **Submit a Pull Request**
+
+### 📜 License
+This project is licensed under the MIT License.
