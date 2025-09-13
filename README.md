@@ -97,8 +97,8 @@ http://localhost:8080/api/
 
 ## 🚀 Contributions are welcome!
 
-- **Fork the repository
-- **Create a new branch (feature/your-feature)
-- **Commit your changes
-- **Push to your branch
-- **Submit a Pull Request
+- **Fork the repository**
+- **Create a new branch (feature/your-feature)**
+- **Commit your changes**
+- **Push to your branch**
+- **Submit a Pull Request**
