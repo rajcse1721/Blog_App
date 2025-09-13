@@ -75,28 +75,30 @@ cd blog-app-apis
 ```
 
 #### Build the project:
+```bash
 mvn clean package
 # or
 gradle build
+```
 
 #### Run the application:
+```bash
 java -jar target/blog-app-apis.jar
 # or
 gradle bootRun
+```
 
 #### Access the API:
+```bash
 http://localhost:8080/api/
+```
 
-🤝 Contributing
+### 🤝 Contributing
 
-Contributions are welcome!
+## 🚀 Contributions are welcome!
 
-Fork the repository
-
-Create a new branch (feature/your-feature)
-
-Commit your changes
-
-Push to your branch
-
-Submit a Pull Request
+- **Fork the repository
+- **Create a new branch (feature/your-feature)
+- **Commit your changes
+- **Push to your branch
+- **Submit a Pull Request
