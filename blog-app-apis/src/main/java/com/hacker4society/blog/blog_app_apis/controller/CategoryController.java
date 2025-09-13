@@ -27,34 +27,34 @@ public class CategoryController {
 
     //post-create user
     @PostMapping("/")
-    public ResponseEntity<CategoryDto> createCategory( @Valid @RequestBody CategoryDto categoryDto){
+    public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto) {
         CategoryDto createdCategory = this.categoryService.createCategory(categoryDto);
-        return new ResponseEntity<>(createdCategory , HttpStatus.CREATED);
+        return new ResponseEntity<>(createdCategory, HttpStatus.CREATED);
     }
 
     //update
     @PutMapping("/{categoryId}")
-    public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto CategoryDto , @PathVariable Integer categoryId){
-        CategoryDto updatedCategory = this.categoryService.updateCategory(CategoryDto , categoryId);
-        return new ResponseEntity<>(updatedCategory , HttpStatus.OK);
+    public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto CategoryDto, @PathVariable Integer categoryId) {
+        CategoryDto updatedCategory = this.categoryService.updateCategory(CategoryDto, categoryId);
+        return new ResponseEntity<>(updatedCategory, HttpStatus.OK);
     }
 
     //Delete
     @DeleteMapping("/{categoryId}")
-    public ResponseEntity<?> deleteCategory(@PathVariable Integer categoryId){
+    public ResponseEntity<?> deleteCategory(@PathVariable Integer categoryId) {
         this.categoryService.deleteCategory(categoryId);
-        return new ResponseEntity<>(new ApiResponse("Category deleted successfully !!", true),HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse("Category deleted successfully !!", true), HttpStatus.OK);
     }
 
     //Get -single user
     @GetMapping("/{categoryId}")
-    public ResponseEntity<CategoryDto> getCategoryById (@PathVariable Integer categoryId){
+    public ResponseEntity<CategoryDto> getCategoryById(@PathVariable Integer categoryId) {
         return ResponseEntity.ok(this.categoryService.getCategoryById(categoryId));
     }
 
     //GET -user get
     @GetMapping("/")
-    public ResponseEntity<List<CategoryDto>> getAllCategory(){
+    public ResponseEntity<List<CategoryDto>> getAllCategory() {
         return ResponseEntity.ok(this.categoryService.getCategories());
     }
 }

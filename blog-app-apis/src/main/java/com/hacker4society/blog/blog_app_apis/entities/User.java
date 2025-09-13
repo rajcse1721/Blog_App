@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -26,16 +26,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "username" , nullable = false, length = 100)
+    @Column(name = "username", nullable = false, length = 100)
     private String name;
-    @Column(name = "password" , nullable = false, length = 100)
+    @Column(name = "password", nullable = false, length = 100)
     private String password;
-    @Column(name = "email_Id" , nullable = false)
+    @Column(name = "email_Id", nullable = false)
     private String email;
-    @Column(name = "about" , nullable = false)
+    @Column(name = "about", nullable = false)
     private String about;
 
-    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Post> posts = new ArrayList<>();
 
 }

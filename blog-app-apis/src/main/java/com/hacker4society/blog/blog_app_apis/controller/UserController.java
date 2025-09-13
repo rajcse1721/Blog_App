@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/users")
@@ -30,34 +31,34 @@ public class UserController {
 
     //post-create user
     @PostMapping("/")
-    public ResponseEntity<UserDto> createUser( @Valid @RequestBody UserDto userDto){
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto) {
         UserDto createUserDto = this.userService.createUser(userDto);
         return new ResponseEntity<>(createUserDto, HttpStatus.CREATED);
     }
 
     //PUT -update user
     @PutMapping("/{userId}")
-    public ResponseEntity<UserDto> updateUser( @Valid @RequestBody UserDto userDto, @PathVariable("userId") Integer uid){
+    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto, @PathVariable("userId") Integer uid) {
         UserDto updatedUser = this.userService.updateUser(userDto, uid);
         return ResponseEntity.ok(updatedUser);
     }
 
     //Delete -delete user
     @DeleteMapping("/{userId}")
-    public ResponseEntity<?>deleteUser(@PathVariable Integer userId){
+    public ResponseEntity<?> deleteUser(@PathVariable Integer userId) {
         this.userService.deleteUser(userId);
-        return new ResponseEntity<>(new ApiResponse("User Deleted Successfully",true),HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse("User Deleted Successfully", true), HttpStatus.OK);
     }
 
     //GET -user get
-   @GetMapping("/")
-    public ResponseEntity<List<UserDto>> getAllUser(){
+    @GetMapping("/")
+    public ResponseEntity<List<UserDto>> getAllUser() {
         return ResponseEntity.ok(this.userService.getAllUsers());
     }
 
     //Get -single user
     @GetMapping("/{userId}")
-    public ResponseEntity <UserDto> getSingleUser(@PathVariable Integer userId){
+    public ResponseEntity<UserDto> getSingleUser(@PathVariable Integer userId) {
         return ResponseEntity.ok(this.userService.getUserById(userId));
     }
 }

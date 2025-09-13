@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="categories")
+@Table(name = "categories")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -27,11 +27,11 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer categoryId;
 
-    @Column(name="title" , length = 100 , nullable = false)
+    @Column(name = "title", length = 100, nullable = false)
     private String categoryTitle;
     private String categoryDescription;
 
-    @OneToMany(mappedBy = "category" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Post> posts = new ArrayList<>();
 
 }

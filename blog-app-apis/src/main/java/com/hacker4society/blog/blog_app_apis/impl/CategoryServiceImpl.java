@@ -20,6 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private ModelMapper modelMapper;
+
     @Override
     public CategoryDto createCategory(CategoryDto categoryDto) {
         Category cat = this.modelMapper.map(categoryDto, Category.class);
@@ -29,11 +30,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDto updateCategory(CategoryDto categoryDto, Integer categoryId) {
-        Category cat = this.categoryRepo.findById(categoryId).orElseThrow(()-> new ResourceNotFoundException("Category" , "Category Id" , categoryId));
+        Category cat = this.categoryRepo.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category", "Category Id", categoryId));
         cat.setCategoryTitle(categoryDto.getCategoryTitle());
         cat.setCategoryDescription(categoryDto.getCategoryDescription());
         Category updatedCat = this.categoryRepo.save(cat);
-        return this.modelMapper.map(updatedCat , CategoryDto.class);
+        return this.modelMapper.map(updatedCat, CategoryDto.class);
     }
 
     @Override
